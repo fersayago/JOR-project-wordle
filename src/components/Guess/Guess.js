@@ -1,15 +1,12 @@
 import React from 'react';
 
-function Guess({ results, setResults }) {
+function Guess({ handleSubmitResult }) {
 
   const [guess, setGuess] = React.useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setResults([ ...results, {
-      word: guess,
-      id: crypto.randomUUID()
-    }])
+    handleSubmitResult(guess);
     setGuess('');
   }
 
