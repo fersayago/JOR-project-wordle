@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessInput({ handleSubmitResult, results }) {
+function GuessInput({ handleSubmitResult, gameState }) {
 
   const [guess, setGuess] = React.useState('');
 
@@ -14,7 +14,7 @@ function GuessInput({ handleSubmitResult, results }) {
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
       <input
-        disabled={results.length === 6}
+        disabled={gameState !== 'playing'}
         id="guess-input"
         type="text"
         value={guess}
